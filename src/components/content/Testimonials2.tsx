@@ -1,41 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Testimonial2 from './Testimonial2';
-
+import axios from 'axios';
+import { Testimonial } from '@interfaces/common';
 const Testimonials2: React.FC = () => {
-    const testimonialList = [
-            {
-                "img": "images/testimonials/people1.webp",
-                "alt": "people1",
-                "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis similique, unde nam totam quam, nisi odio error amet provident iste modi eos dicta, eum suscipit rem illum inventore sapiente blanditiis?",
-                "name": "James Kim",
-                "company": "Google"
-            },
-            {
-                "img": "images/testimonials/people2.webp",
-                "alt": "people1",
-                "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis similique, unde nam totam quam, nisi odio error amet provident iste modi eos dicta, eum suscipit rem illum inventore sapiente blanditiis?",
-                "name": "James Kim",
-                "company": "Google"
-            },
-            {
-                "img": "images/testimonials/people3.webp",
-                "alt": "people1",
-                "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis similique, unde nam totam quam, nisi odio error amet provident iste modi eos dicta, eum suscipit rem illum inventore sapiente blanditiis?",
-                "name": "James Kim",
-                "company": "Google"
-            },
-        ];
+    const [testimonialList, setTestimonialList] = useState<Testimonial[]>([]);
+    useEffect(() => {
+        axios.get('/data/testmonial.json')
+        .then((res) => {
+            setTestimonialList(res.data);
+        })
+        .catch(err=>console.log(err))
+    }, []);
         return (
             <ul className="testimonials">
                 {testimonialList && testimonialList.map((testimonial) => 
                     <li className="testimonial">
-                        <Testimonial2 
-                            img = {testimonial.img}
-                            alt = {testimonial.alt}
-                            description ={testimonial.description}
-                            name = {testimonial.name}
-                            company = {testimonial.company}
-                            />
+                        <Testimonial2 testimonial={testimonial}/>
                     </li>            
                 )}
             </ul>

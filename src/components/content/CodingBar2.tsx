@@ -1,11 +1,11 @@
 import React from 'react';
-
+import {Code} from '@interfaces/common';
 interface CodingBar2Props {
-    title: string;
-    percent: number;
+    code: Code;
 }
 
-const CodingBar2: React.FC<CodingBar2Props> = ({title, percent}) => {
+const CodingBar2: React.FC<CodingBar2Props> = ({code}) => {
+    const {title, percent} = code;
     return (
         <>
             <div className="bar__metadata"><span>{title}</span><span>{percent}%</span></div>

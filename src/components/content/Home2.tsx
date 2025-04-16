@@ -1,7 +1,15 @@
 import React from 'react';
 import { Logo } from '@interfaces/common';
 
-interface HomeProps {
+// interface와 type의 주요 차이점:
+// 1. interface는 선언 병합(Declaration Merging)이 가능하지만, type은 불가능합니다.
+// 2. interface는 주로 객체 구조를 정의할 때 사용되며, type은 더 유연한 타입 정의가 가능합니다.
+// 3. 이 경우에는 두 방식 모두 동일한 결과를 제공합니다.
+
+// interface HomeProps {
+//     logo: Logo;
+// }
+type HomeProps ={
     logo: Logo;
 }
 

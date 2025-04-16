@@ -1,18 +1,25 @@
-import React from 'react';
+import React from "react";
+import { Category } from "../../interfaces/common";
 
 interface Category2Props {
-    name: string;
-    count: number;
-    style: string;
-    click: (name: string) => void;
+  category: Category;
+  style: string;
+  click: (name: string) => void;
 }
 
-const Category2: React.FC<Category2Props> = ({name, count, style, click}) => {
-    return (
-        <button className={style}
-                onClick={()=>{click(name)} }
-        >{name}<span className="category__count">{count}</span></button>
-    );
-}
+const Category2: React.FC<Category2Props> = ({ category, style, click }) => {
+  const { name, count } = category;
+  return (
+    <button
+      className={style}
+      onClick={() => {
+        click(name);
+      }}
+    >
+      {name}
+      <span className="category__count">{count}</span>
+    </button>
+  );
+};
 
 export default Category2;

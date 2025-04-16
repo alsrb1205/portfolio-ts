@@ -21,7 +21,53 @@ export interface Menu {
  */
 export interface Major {
     icon: string;
-    title: string; 
+    title: string;
     subjects: string;
 }
 
+/**
+ * Job interface
+ */
+export interface Job {
+    img: string;
+    alt: string;
+    name: string;
+    period: string;
+}
+
+/**
+ * Coding interface
+ */
+export interface Code {
+    title: string;
+    percent: number;
+}
+
+/**
+ * Category interface
+ */
+export interface Category {
+    name: string;
+    count: number;
+}
+
+/**
+ * Project interface
+ */
+export interface Project {
+    img: string;
+    alt: string;
+    title: string;
+    description: string;
+}
+
+/**
+ * Testimonial interface
+ */
+export interface Testimonial {
+    img: string;
+    alt: string;
+    description: string;
+    name: string;
+    company: string;
+}

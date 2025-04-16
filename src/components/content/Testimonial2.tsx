@@ -1,14 +1,12 @@
 import React from 'react';
+import { Testimonial } from '@interfaces/common';
 
 interface Testimonial2Props {
-    img: string;
-    alt: string;
-    description: string;
-    name: string;
-    company: string;
+    testimonial: Testimonial;
 }
 
-const Testimonial2: React.FC<Testimonial2Props> = ({img, alt, description, name, company}) => {
+const Testimonial2: React.FC<Testimonial2Props> = ({testimonial}) => {
+    const {img, alt, description, name, company} = testimonial;
     return (
         <>
             <img className="testimonial__img" src={img} alt={alt} />
